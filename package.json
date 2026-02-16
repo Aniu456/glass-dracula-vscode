@@ -1,0 +1,51 @@
+{
+  "name": "glass-dracula",
+  "displayName": "Glass Dracula",
+  "description": "A translucent glass background with Dracula-inspired syntax highlighting, optimized for dark transparent editors",
+  "version": "0.1.0",
+  "publisher": "BennyWu",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "dracula",
+    "glass",
+    "transparent",
+    "color-theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aniu456/glass-dracula-vscode"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Glass Dracula",
+        "uiTheme": "vs-dark",
+        "path": "./themes/glass-dracula-color-theme.json"
+      },
+      {
+        "label": "Glass Dracula Pure",
+        "uiTheme": "vs-dark",
+        "path": "./themes/glass-dracula-pure-color-theme.json"
+      },
+      {
+        "label": "Glass Dracula Soft",
+        "uiTheme": "vs-dark",
+        "path": "./themes/glass-dracula-soft-color-theme.json"
+      },
+      {
+        "label": "Glass Dracula Vivid",
+        "uiTheme": "vs-dark",
+        "path": "./themes/glass-dracula-vivid-color-theme.json"
+      }
+    ]
+  }
+}
