@@ -1,51 +1,71 @@
 {
   "name": "glass-dracula",
   "displayName": "Glass Dracula",
-  "description": "A translucent glass background with Dracula-inspired syntax highlighting, optimized for dark transparent editors",
-  "version": "0.1.0",
+  "description": "Custom Dracula themes by BennyWu: Dark Vivid Black, Light Vivid White, and three Glass variants.",
+  "version": "0.2.0",
   "publisher": "BennyWu",
   "license": "MIT",
   "icon": "icon.png",
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
     "Themes"
   ],
   "keywords": [
     "theme",
-    "dark",
     "dracula",
     "glass",
-    "transparent",
+    "dark",
+    "light",
     "color-theme"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aniu456/glass-dracula-vscode"
+    "url": "https://github.com/Aniu456/glass-dracula-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Aniu456/glass-dracula-vscode/issues"
+  },
+  "homepage": "https://github.com/Aniu456/glass-dracula-vscode#readme",
+  "scripts": {
+    "build:themes": "node scripts/convert-zed-to-vscode.js",
+    "package": "npm run build:themes && vsce package",
+    "publish:marketplace": "npm run build:themes && vsce publish"
   },
   "contributes": {
     "themes": [
       {
-        "label": "Glass Dracula",
+        "label": "Dracula Dark Vivid Black",
         "uiTheme": "vs-dark",
-        "path": "./themes/glass-dracula-color-theme.json"
+        "path": "./themes/dracula-dark-vivid-black-color-theme.json"
       },
       {
-        "label": "Glass Dracula Pure",
-        "uiTheme": "vs-dark",
-        "path": "./themes/glass-dracula-pure-color-theme.json"
+        "label": "Dracula Light Vivid White",
+        "uiTheme": "vs",
+        "path": "./themes/dracula-light-vivid-white-color-theme.json"
       },
       {
-        "label": "Glass Dracula Soft",
+        "label": "Dracula Glass",
         "uiTheme": "vs-dark",
-        "path": "./themes/glass-dracula-soft-color-theme.json"
+        "path": "./themes/dracula-glass-color-theme.json"
       },
       {
-        "label": "Glass Dracula Vivid",
+        "label": "Dracula Glass HSV",
         "uiTheme": "vs-dark",
-        "path": "./themes/glass-dracula-vivid-color-theme.json"
+        "path": "./themes/dracula-glass-hsv-color-theme.json"
+      },
+      {
+        "label": "Dracula Glass Vivid",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dracula-glass-vivid-color-theme.json"
       }
     ]
-  }
+  },
+  "files": [
+    "themes/**",
+    "README.md",
+    "LICENSE",
+    "icon.png"
+  ]
 }
