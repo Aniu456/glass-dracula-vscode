@@ -20,6 +20,7 @@
     "editor.wordHighlightBackground": "#036A9625",
     "editor.wordHighlightStrongBackground": "#644AC920",
     "editorBracketMatch.background": "#644AC918",
+    "editorBracketHighlight.foreground1": "#A3144D",
     "editorWhitespace.foreground": "#1F1F1F20",
     "editorIndentGuide.background1": "#1F1F1F18",
     "editorIndentGuide.activeBackground1": "#644AC950",
@@ -28,7 +29,7 @@
     "activityBar.foreground": "#1F1F1F",
     "activityBar.inactiveForeground": "#1F1F1F70",
     "activityBarBadge.background": "#836ed4ff",
-    "activityBarBadge.foreground": "#1F1F1F",
+    "activityBarBadge.foreground": "#FBFBFB",
     "sideBar.background": "#fbfbfdff",
     "sideBar.foreground": "#1F1F1F",
     "sideBar.border": "#d0d0d0",
@@ -78,7 +79,8 @@
     "terminal.ansiBrightBlue": "#7862D0",
     "terminal.ansiBrightMagenta": "#BF185A",
     "terminal.ansiBrightCyan": "#047FB4",
-    "terminal.ansiBrightWhite": "#2C2B31"
+    "terminal.ansiBrightWhite": "#2C2B31",
+    "sideBarSectionHeader.background": "#FBFBFB"
   },
   "tokenColors": [
     {
@@ -93,10 +95,11 @@
     {
       "name": "zed:comment.doc",
       "scope": [
+        "punctuation.definition.comment",
         "comment.block.documentation"
       ],
       "settings": {
-        "foreground": "#A3144D"
+        "foreground": "#635D97"
       }
     },
     {
@@ -217,6 +220,15 @@
       "name": "zed:string",
       "scope": [
         "string"
+      ],
+      "settings": {
+        "foreground": "#846E15"
+      }
+    },
+    {
+      "name": "zed:string.punctuation",
+      "scope": [
+        "punctuation.definition.string"
       ],
       "settings": {
         "foreground": "#846E15"
