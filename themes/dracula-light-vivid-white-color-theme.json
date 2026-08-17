@@ -26,6 +26,7 @@
     "editorIndentGuide.activeBackground1": "#644AC950",
     "editorGutter.background": "#fbfbfdff",
     "activityBar.background": "#fbfbfdff",
+    "activityBar.border": "#1F1F1F20",
     "activityBar.foreground": "#1F1F1F",
     "activityBar.inactiveForeground": "#1F1F1F70",
     "activityBarBadge.background": "#836ed4ff",

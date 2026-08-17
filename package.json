@@ -1,8 +1,8 @@
 {
   "name": "glass-dracula",
   "displayName": "Glass Dracula",
-  "description": "Custom Dracula themes by BennyWu: Dark Vivid Black, Light Vivid White, and three Glass variants.",
-  "version": "0.3.0",
+  "description": "Custom Dracula themes by BennyWu: Dark Vivid Black, Light Vivid White, and two Glass variants.",
+  "version": "0.3.3",
   "publisher": "BennyWu",
   "license": "MIT",
   "icon": "icon.png",
@@ -49,11 +49,6 @@
         "label": "Dracula Glass",
         "uiTheme": "vs-dark",
         "path": "./themes/dracula-glass-color-theme.json"
-      },
-      {
-        "label": "Dracula Glass HSV",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dracula-glass-hsv-color-theme.json"
       },
       {
         "label": "Dracula Glass Vivid",

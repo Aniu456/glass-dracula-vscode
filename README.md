@@ -8,7 +8,6 @@ A custom Dracula theme pack by **BennyWu**, primarily designed for Zed with a VS
 - Dracula Dark Vivid Black
 - Dracula Light Vivid White
 - Dracula Glass
-- Dracula Glass HSV
 - Dracula Glass Vivid
 
 ## Development / 开发

@@ -7,22 +7,22 @@ const OUT_DIR = path.resolve(__dirname, "..", "themes");
 
 const THEME_INPUTS = [
   {
-    src: "one-dark-pro-dracula-vivid-black-apple.json",
+    id: "dracula-dark-vivid-black",
+    src: "zed/glass-dracula/themes/dracula-dark-vivid-black.json",
     out: "dracula-dark-vivid-black-color-theme.json",
   },
   {
+    id: "dracula-light-vivid-white",
     src: "glass-dracula-vivid-white.json",
     out: "dracula-light-vivid-white-color-theme.json",
   },
   {
+    id: "dracula-glass",
     src: "one-dark-pro-glass-dracula.json",
     out: "dracula-glass-color-theme.json",
   },
   {
-    src: "one-dark-pro-glass-dracula-hsv.json",
-    out: "dracula-glass-hsv-color-theme.json",
-  },
-  {
+    id: "dracula-glass-vivid",
     src: "one-dark-pro-glass-dracula-vivid.json",
     out: "dracula-glass-vivid-color-theme.json",
   },
@@ -85,39 +85,67 @@ const createTheme = (themeFamily) => {
     "editor.foreground": pick(style, "editor.foreground", "text"),
     "editorLineNumber.foreground": pick(style, "editor.line_number", "text.muted"),
     "editorLineNumber.activeForeground": pick(style, "editor.active_line_number", "text"),
-    "editorLineHighlightBackground": pick(style, "editor.active_line.background"),
+    "editor.lineHighlightBackground": pick(style, "editor.active_line.background"),
     "editorCursor.foreground": pick(style, "text.accent", "border.focused", "icon.accent"),
     "editor.selectionBackground": pick(style, "element.selected", "editor.document_highlight.write_background"),
     "editor.selectionHighlightBackground": pick(style, "editor.document_highlight.read_background"),
     "editor.wordHighlightBackground": pick(style, "editor.document_highlight.read_background"),
     "editor.wordHighlightStrongBackground": pick(style, "editor.document_highlight.write_background"),
     "editorBracketMatch.background": pick(style, "editor.document_highlight.bracket_background"),
+    "editor.findMatchBackground": pick(style, "search.active_match_background"),
+    "editor.findMatchHighlightBackground": pick(style, "search.match_background"),
     "editorWhitespace.foreground": pick(style, "editor.invisible"),
     "editorIndentGuide.background1": pick(style, "editor.indent_guide"),
     "editorIndentGuide.activeBackground1": pick(style, "editor.indent_guide_active"),
 
     "editorGutter.background": pick(style, "editor.gutter.background", "editor.background"),
 
+    "editorError.foreground": pick(style, "error"),
+    "editorWarning.foreground": pick(style, "warning"),
+    "editorInfo.foreground": pick(style, "info"),
+    "editorHint.foreground": pick(style, "hint"),
+
+    "gitDecoration.addedResourceForeground": pick(style, "created", "version_control.added"),
+    "gitDecoration.modifiedResourceForeground": pick(style, "modified", "version_control.modified"),
+    "gitDecoration.deletedResourceForeground": pick(style, "deleted", "version_control.deleted"),
+    "gitDecoration.conflictingResourceForeground": pick(style, "conflict"),
+    "gitDecoration.ignoredResourceForeground": pick(style, "ignored"),
+
     "activityBar.background": pick(style, "panel.background", "surface.background", "background"),
     "activityBar.foreground": pick(style, "icon", "text"),
     "activityBar.inactiveForeground": pick(style, "icon.muted", "text.muted"),
     "activityBarBadge.background": pick(style, "text.accent", "border.focused"),
     "activityBarBadge.foreground": pick(style, "text", "editor.foreground"),
+    "activityBarTop.background": pick(style, "panel.background", "surface.background", "background"),
+    "activityBarTop.foreground": pick(style, "icon", "text"),
+    "activityBarTop.inactiveForeground": pick(style, "icon.muted", "text.muted"),
+    "activityBarTop.activeBackground": pick(style, "element.selected"),
+    "activityBarTop.activeBorder": pick(style, "border.transparent"),
 
     "sideBar.background": pick(style, "panel.background", "surface.background", "background"),
-    "sideBar.foreground": pick(style, "text", "editor.foreground"),
+    "sideBar.foreground": pick(style, "text.muted", "text", "editor.foreground"),
     "sideBar.border": pick(style, "border", "pane_group.border"),
+    "sideBarSectionHeader.background": pick(style, "surface.background", "panel.background"),
+    "sideBarSectionHeader.foreground": pick(style, "text", "editor.foreground"),
 
     "titleBar.activeBackground": pick(style, "title_bar.background", "background"),
     "titleBar.inactiveBackground": pick(style, "title_bar.inactive_background", "title_bar.background"),
     "titleBar.activeForeground": pick(style, "text", "editor.foreground"),
+
+    "editorGroupHeader.tabsBackground": pick(style, "tab_bar.background", "title_bar.background"),
+    "editorGroupHeader.noTabsBackground": pick(style, "tab_bar.background", "title_bar.background"),
+    "editorGroupHeader.tabsBorder": pick(style, "border.variant", "border"),
+    "editorGroup.emptyBackground": pick(style, "editor.background", "background"),
+    "editorPane.background": pick(style, "editor.background", "background"),
 
     "tab.activeBackground": pick(style, "tab.active_background", "editor.background"),
     "tab.inactiveBackground": pick(style, "tab.inactive_background", "tab_bar.background"),
     "tab.activeForeground": pick(style, "text", "editor.foreground"),
     "tab.inactiveForeground": pick(style, "text.muted", "icon.muted"),
     "tab.border": pick(style, "border.variant", "border"),
+    "tab.activeBorder": pick(style, "border.transparent"),
     "tab.activeBorderTop": pick(style, "border.focused", "text.accent"),
+    "tab.hoverBackground": pick(style, "ghost_element.hover", "element.hover"),
 
     "statusBar.background": pick(style, "status_bar.background", "background"),
     "statusBar.foreground": pick(style, "text", "editor.foreground"),
@@ -125,6 +153,9 @@ const createTheme = (themeFamily) => {
 
     "panel.background": pick(style, "panel.background", "surface.background"),
     "panel.border": pick(style, "border", "border.variant"),
+
+    "editorWidget.background": pick(style, "elevated_surface.background", "surface.background"),
+    "editorWidget.border": pick(style, "border", "border.variant"),
 
     "input.background": pick(style, "element.background", "surface.background"),
     "input.foreground": pick(style, "text", "editor.foreground"),
@@ -138,11 +169,32 @@ const createTheme = (themeFamily) => {
     "list.hoverBackground": pick(style, "element.hover"),
     "list.activeSelectionBackground": pick(style, "element.selected"),
     "list.inactiveSelectionBackground": pick(style, "ghost_element.selected", "element.selected"),
+    "list.focusBackground": pick(style, "element.selected"),
+    "list.focusAndSelectionBackground": pick(style, "element.selected"),
+    "list.inactiveFocusBackground": pick(style, "ghost_element.selected", "element.selected"),
     "list.activeSelectionForeground": pick(style, "text", "editor.foreground"),
     "list.inactiveSelectionForeground": pick(style, "text", "editor.foreground"),
+    "list.hoverForeground": pick(style, "text", "editor.foreground"),
+    "list.focusForeground": pick(style, "text", "editor.foreground"),
+    "list.focusAndSelectionForeground": pick(style, "text", "editor.foreground"),
+    "list.focusOutline": pick(style, "border.transparent"),
+    "list.focusAndSelectionOutline": pick(style, "border.transparent"),
+
+    "editorStickyScroll.background": pick(style, "editor.background", "background"),
+    "editorStickyScroll.border": pick(style, "border.variant", "border"),
+    "sideBarStickyScroll.background": pick(style, "panel.background", "surface.background"),
+    "sideBarStickyScroll.border": pick(style, "border.variant", "border"),
 
     "scrollbarSlider.background": pick(style, "scrollbar.thumb.background"),
     "scrollbarSlider.hoverBackground": pick(style, "scrollbar.thumb.hover_background"),
+    "scrollbarSlider.activeBackground": pick(style, "scrollbar.thumb.hover_background"),
+
+    "minimap.background": pick(style, "editor.background", "background"),
+    "minimapSlider.background": pick(style, "minimap.thumb.background"),
+    "minimapSlider.hoverBackground": pick(style, "scrollbar.thumb.hover_background"),
+
+    "breadcrumb.background": pick(style, "editor.background", "background"),
+    "breadcrumb.foreground": pick(style, "text.muted", "text"),
 
     "terminal.background": pick(style, "terminal.background", "editor.background"),
     "terminal.foreground": pick(style, "terminal.foreground", "editor.foreground"),
@@ -172,14 +224,17 @@ const createTheme = (themeFamily) => {
   const tokenColors = [];
   addTokenRule(tokenColors, syntax, "comment", ["comment"]);
   addTokenRule(tokenColors, syntax, "comment.doc", ["comment.block.documentation"]);
+  addTokenRule(tokenColors, syntax, "constant.builtin", ["constant.language", "support.constant"]);
   addTokenRule(tokenColors, syntax, "keyword", ["keyword", "storage", "storage.type"]);
   addTokenRule(tokenColors, syntax, "operator", ["keyword.operator"]);
   addTokenRule(tokenColors, syntax, "attribute", ["entity.other.attribute-name"]);
   addTokenRule(tokenColors, syntax, "function", ["entity.name.function", "support.function"]);
   addTokenRule(tokenColors, syntax, "constructor", ["entity.name.type.class"]);
+  addTokenRule(tokenColors, syntax, "embedded", ["meta.embedded", "source.embedded"]);
   addTokenRule(tokenColors, syntax, "type", ["entity.name.type", "support.type"]);
   addTokenRule(tokenColors, syntax, "type.interface", ["entity.name.type.interface"]);
   addTokenRule(tokenColors, syntax, "type.super", ["entity.other.inherited-class"]);
+  addTokenRule(tokenColors, syntax, "type.builtin", ["support.type.builtin", "support.class.builtin"]);
   addTokenRule(tokenColors, syntax, "constant", ["constant"]);
   addTokenRule(tokenColors, syntax, "enum", ["entity.name.type.enum"]);
   addTokenRule(tokenColors, syntax, "number", ["constant.numeric"]);
@@ -199,14 +254,26 @@ const createTheme = (themeFamily) => {
   addTokenRule(tokenColors, syntax, "variable.parameter", ["variable.parameter"]);
   addTokenRule(tokenColors, syntax, "variable.special", ["variable.language"]);
   addTokenRule(tokenColors, syntax, "label", ["entity.name.label"]);
+  addTokenRule(tokenColors, syntax, "hint", ["markup.hint"]);
   addTokenRule(tokenColors, syntax, "title", ["entity.name.section"]);
   addTokenRule(tokenColors, syntax, "punctuation", ["punctuation"]);
-  addTokenRule(tokenColors, syntax, "punctuation.bracket", ["punctuation.bracket"]);
+  addTokenRule(tokenColors, syntax, "punctuation.bracket", [
+    "punctuation.bracket",
+    "punctuation.definition.tag",
+  ]);
   addTokenRule(tokenColors, syntax, "punctuation.delimiter", ["punctuation.separator"]);
-  addTokenRule(tokenColors, syntax, "punctuation.special", ["punctuation.definition.tag"]);
+  addTokenRule(tokenColors, syntax, "punctuation.special", [
+    "punctuation.special",
+    "punctuation.definition.interpolation",
+  ]);
+  addTokenRule(tokenColors, syntax, "punctuation.list_marker", ["punctuation.definition.list"]);
   addTokenRule(tokenColors, syntax, "preproc", ["meta.preprocessor"]);
   addTokenRule(tokenColors, syntax, "emphasis", ["markup.italic"]);
   addTokenRule(tokenColors, syntax, "emphasis.strong", ["markup.bold"]);
+  addTokenRule(tokenColors, syntax, "tag.doctype", ["meta.tag.sgml.doctype"]);
+  addTokenRule(tokenColors, syntax, "variant", ["entity.name.type.variant", "support.type.variant"]);
+  addTokenRule(tokenColors, syntax, "primary", ["source"]);
+  addTokenRule(tokenColors, syntax, "predictive", ["markup.prediction"]);
 
   const semanticTokenColors = {};
   if (syntax.comment?.color) semanticTokenColors.comment = syntax.comment.color;
@@ -245,10 +312,17 @@ const createTheme = (themeFamily) => {
   };
 };
 
-const main = () => {
+const main = (requestedTheme = process.argv[2]) => {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  for (const item of THEME_INPUTS) {
+  const inputs = requestedTheme
+    ? THEME_INPUTS.filter((item) => item.id === requestedTheme)
+    : THEME_INPUTS;
+  if (inputs.length === 0) {
+    throw new Error(`Unknown theme: ${requestedTheme}`);
+  }
+
+  for (const item of inputs) {
     const inPath = path.join(ROOT_DIR, item.src);
     const outPath = path.join(OUT_DIR, item.out);
     const raw = fs.readFileSync(inPath, "utf8");
@@ -259,4 +333,8 @@ const main = () => {
   }
 };
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { createTheme, main };
