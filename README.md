@@ -7,12 +7,15 @@ A custom Dracula theme pack by **BennyWu**, primarily designed for Zed with a VS
 
 - Dracula Dark Vivid Black
 - Dracula Light Vivid White
-- Dracula Glass
-- Dracula Glass Vivid
+
+## Installation / 安装
+
+Install **Glass Dracula** by **BennyWu** from the VS Code Marketplace, then run **Preferences: Color Theme** and choose either theme above.
+在 VS Code 扩展市场安装 **Glass Dracula**，运行“首选项：颜色主题”，选择上面的深色或浅色主题。
 
 ## Development / 开发
 
-**Build themes / 构建主题**（converts Zed source files → VSCode theme files under `themes/` / 将 Zed 源文件转换为 VSCode 主题文件）:
+**Build themes / 构建主题**（updates Dark Vivid Black from its Zed source; Light Vivid White is maintained directly in `themes/` / 从 Zed 源文件更新深色主题；浅色主题直接维护在 `themes/` 中）:
 ```bash
 npm run build:themes
 ```

@@ -5,26 +5,12 @@ const path = require("path");
 const ROOT_DIR = path.resolve(__dirname, "../../..");
 const OUT_DIR = path.resolve(__dirname, "..", "themes");
 
+// The light theme is maintained directly in themes/. Only regenerate the dark theme.
 const THEME_INPUTS = [
   {
     id: "dracula-dark-vivid-black",
     src: "zed/glass-dracula/themes/dracula-dark-vivid-black.json",
     out: "dracula-dark-vivid-black-color-theme.json",
-  },
-  {
-    id: "dracula-light-vivid-white",
-    src: "glass-dracula-vivid-white.json",
-    out: "dracula-light-vivid-white-color-theme.json",
-  },
-  {
-    id: "dracula-glass",
-    src: "one-dark-pro-glass-dracula.json",
-    out: "dracula-glass-color-theme.json",
-  },
-  {
-    id: "dracula-glass-vivid",
-    src: "one-dark-pro-glass-dracula-vivid.json",
-    out: "dracula-glass-vivid-color-theme.json",
   },
 ];
 
@@ -79,7 +65,10 @@ const createTheme = (themeFamily) => {
     "widget.border": pick(style, "border", "border.variant"),
     "widget.shadow": "#00000040",
 
-    "selection.background": pick(style, "element.selected", "editor.document_highlight.write_background"),
+    // Input selections need stronger contrast than selected sidebar rows.
+    "selection.background": theme.name === "Dracula Dark Vivid Black"
+      ? "#586A8A"
+      : pick(style, "element.selected", "editor.document_highlight.write_background"),
 
     "editor.background": pick(style, "editor.background", "background"),
     "editor.foreground": pick(style, "editor.foreground", "text"),
